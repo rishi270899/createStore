@@ -1,5 +1,6 @@
 package com.rishigoyal.createstore.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,6 +27,7 @@ public class OrderItems {
 
     //Add relations
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
