@@ -1,6 +1,7 @@
 package com.rishigoyal.createstore.controllers;
 
 import com.rishigoyal.createstore.entities.Product;
+import com.rishigoyal.createstore.services.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,26 +17,26 @@ public class ProductController {
 
     @PostMapping
     public Product createProduct(@Valid @RequestBody Product product) {
-        return null;
+        return productService.createProduct(product);
     }
 
     @PutMapping("/{id}")
     public Product updateProduct(@PathVariable Long id, @Valid @RequestBody Product product) {
-        return null;
+        return productService.updateProduct(id, product);
     }
 
     @GetMapping
     public List<Product> getProducts(){
-        return null;
+        return productService.getProducts();
     }
 
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable Long id){
-      return null;
+      return productService.getProductById(id);
     }
 
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable Long id){
-
+   productService.deleteProduct(id);
     }
 }
