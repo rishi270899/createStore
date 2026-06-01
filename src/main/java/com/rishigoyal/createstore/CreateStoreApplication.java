@@ -20,9 +20,5 @@ public class CreateStoreApplication {
                 );
 
         SpringApplication.run(CreateStoreApplication.class, args);
-
-
-
     }
-
 }
