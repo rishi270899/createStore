@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name="orders")
@@ -38,9 +39,15 @@ public class Order {
     private LocalDateTime createdAt;
 //    private LocalDateTime updatedAt;
 
+    @OneToMany(mappedBy = "order")
+    private List<OrderItems> orderItems;
+
 
     public void prePersist(){
         this.createdAt = LocalDateTime.now();
     }
+
+
+
 
 }

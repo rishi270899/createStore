@@ -1,5 +1,6 @@
 package com.rishigoyal.createstore.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
@@ -9,6 +10,7 @@ import lombok.*;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 
 @Entity
@@ -40,4 +42,11 @@ public class Product {
     @Min(value = 0, message = "Stock cannot be less than 0")
     @Column(nullable = false, name = "stock_quantity")
     private int stockQuantity;
+
+
+    // Add : Relations
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private List<OrderItems> orderItems;
+
 }
